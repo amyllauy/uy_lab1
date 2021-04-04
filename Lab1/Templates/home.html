@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title> Your Bujo </title>
+		<script>
+			function setName()
+			{
+				var name = document.getElementById("textbox").value;
+				var name1="Hello, ";
+				var name2="! Today is going to be a great day!";
+
+				var nameFinal=name1+name+name2;
+
+				document.getElementById("greeting").innerHTML=nameFinal;
+
+				document.getElementById("textbox").style.display="none";
+				document.getElementById("go").style.display="none";
+			}
+		</script>
+	</head>
+
+	<body>
+		<center><h1 id="greeting"> Hello! What is your name? <br></h1> 
+		
+
+		<input id="textbox"></input>
+		<button id="go" onclick="setName()">Go!</button>
+
+
+		<h2>Your Bullet Journal</h2>
+
+		<a href="http://127.0.0.1:8000/home/"><button> Home </button></a>
+
+		<a href="http://127.0.0.1:8000/profile/"><button> Profile </button></a>
+
+		<a href="http://127.0.0.1:8000/key/"><button> Key </button></a>
+
+		<a href="http://127.0.0.1:8000/this_week/"><button> This Week </button></a>
+
+		<a href="http://127.0.0.1:8000/today/"><button> Today </button></a></center>
+	</body>
+</html>
