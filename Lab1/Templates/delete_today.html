@@ -1,14 +1,14 @@
 <html>
 	<head>
-		<title> Today </title>
+		<title> This Week </title>
 	</head>
 	<body>
 	<center>
-	<h1>Edit Task</h1>
-		<form method=POST>
-			{{form.as_p}}
-			<input type="submit" value="Edit!" onclick=alert("Edited!")>{% csrf_token %}
-		</form>
+	<h1>Delete Task</h1>
+	<form method ="POST"> {% csrf_token %}
+		Are you sure you would like to delete the {{task}}? <br> <br>
+		<a href="{% url 'today' % pk=task.pk()}"><input button type="submit" value="Yes"></a> </input> </form>
+		<a href="{% url 'today' %}"><button> No </button></a> <br> <br>
 		<br>
 
 			<a href="http://127.0.0.1:8000/home/"><button> Home </button></a>

@@ -33,13 +33,15 @@ urlpatterns = [
 
     path('this_week/', views.week_view, name='this_week'),
     path('this_week/add_week/', views.add_week_view, name='this_week_add'),
-    path('this_week/edit_week/)', views.edit_week_view, name='this_week_edit'),
-    path('this_week/delete_week/', views.delete_week_view, name='this_week_delete'),
+    path('this_week/edit_week/<int:pk>/', views.edit_week_view, name='this_week_edit_pk'),
     path('this_week/delete_week/<int:pk>/', views.delete_week_view, name='this_week_delete_pk'),
+    path('this_week/mark_week/<int:pk>/', views.delete_week_view, name='this_week_mark_pk'),
 
     path('today/', views.today_view, name='today'),
     path('today/add_today/', views.add_today_view, name='today_add'),
-    path('today/edit_today/)', views.edit_today_view, name='today_edit'),
-    path('today/delete_today/', views.delete_today_view, name='today_delete'),
+    path('today/edit_today/<int:pk>/', views.edit_today_view, name='today_edit_pk'),
     path('today/delete_today/<int:pk>/', views.delete_today_view, name='today_delete_pk'),
+    path('today/mark_today/<int:pk>/', views.mark_week_view, name='this_week_mark_pk'),
+
+
 ]

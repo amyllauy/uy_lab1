@@ -8,7 +8,7 @@
 	<h3>03.01.MON - 03.07.SUN</h3>
 		{% for today in TodayList %}
 			<li> {{today}} </li> 
-			<br><a href="http://127.0.0.1:8000/today/edit_today"><button>Edit</button></a>
+			<br><a href="{% url 'today_edit_pk' pk=today.pk %}"><button>Edit</button></a>
 			<a href="{% url 'today_delete_pk' pk=today.pk %}"><button>Delete</button></a>
 			<a href="http://127.0.0.1:8000/this_week/mark_today"><button>Mark as Done </button></a> <br> <br>
 		{% endfor %}

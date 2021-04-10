@@ -1,5 +1,6 @@
 from django import forms
 
+
 from .models import User, Nickname, Bio, Key, Week, Today
 
 class UserForm(forms.ModelForm):

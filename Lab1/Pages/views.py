@@ -41,12 +41,16 @@ def edit_nickname_view(request, *args, **kwargs):
 	form=NicknameForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+		return redirect("/profile")
 	return render(request, "edit_nickname.html", {"form": form})
+
+	task = Week.objects.get(pk=pk)
 
 def edit_bio_view(request, *args, **kwargs):	
 	form=BioForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+		return redirect("/profile")
 	return render(request, "edit_bio.html", {"form": form})
 
 
@@ -75,11 +79,16 @@ def add_week_view(request, *args, **kwargs):
 		form.save()
 	return render(request, "add_week.html", {"form": form})
 
-def edit_week_view(request, *args, **kwargs):
-	form=WeekForm(request.POST)
-	if form.is_valid():
-		form.save()
-	return render(request, "edit_week.html", {"form": form})
+def edit_week_view(request, pk):
+	task = Week.objects.get(pk=pk)
+
+	form=WeekForm(request.POST or None, instance=task)
+	if request.method == "POST":
+		
+		if form.is_valid():
+			form.save()
+			return redirect("/this_week")
+	return render(request, "edit_week.html", {"form" : form} )
 
 def delete_week_view(request, pk):
 	task = Week.objects.get(pk=pk)
@@ -87,6 +96,9 @@ def delete_week_view(request, pk):
 	if request.method == "POST":
 		task.delete()
 		return redirect("/this_week")
+	return render(request, "delete_week.html", {"task": task} )
+
+def mark_week_view(request, pk):
 	return render(request, "delete_week.html", {"task": task} )
 
 
@@ -103,16 +115,25 @@ def add_today_view(request, *args, **kwargs):
 		form.save()
 	return render(request, "add_today.html", {"form": form})
 
-def edit_today_view(request, *args, **kwargs):
-	form=TodayForm(request.POST)
-	if form.is_valid():
-		form.save()
-	return render(request, "edit_today.html", {"form": form})
+def edit_today_view(request, pk):
+	task = Today.objects.get(pk=pk)
 
-def delete_today_view(request, *args, **kwargs):
+	form=TodayForm(request.POST or None, instance=task)
+	if request.method == "POST":
+		
+		if form.is_valid():
+			form.save()
+			return redirect("/today")
+	return render(request, "edit_today.html", {"form" : form} )
+
+
+def delete_today_view(request, pk):
 	task = Today.objects.get(pk=pk)
 
 	if request.method == "POST":
 		task.delete()
 		return redirect("/today")
+	return render(request, "delete_today.html", {"task": task} )
+
+def mark_today_view(request, pk):
 	return render(request, "delete_today.html", {"task": task} )
