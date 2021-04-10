@@ -2,30 +2,30 @@
 	<head>
 		<title> Today </title>
 	</head>
-
 	<body>
 	<center>
+	<h1>Today</h1>
+	<h3>03.01.MON - 03.07.SUN</h3>
+		{% for today in TodayList %}
+			<li> {{today}} </li> 
+			<br><a href="http://127.0.0.1:8000/today/edit_today"><button>Edit</button></a>
+			<a href="{% url 'today_delete_pk' pk=today.pk %}"><button>Delete</button></a>
+			<a href="http://127.0.0.1:8000/this_week/mark_today"><button>Mark as Done </button></a> <br> <br>
+		{% endfor %}
+		<br>
+	</form>
 
-	<h1> Today </h1>
+			<a href="http://127.0.0.1:8000/today/add_today/"><button> Add Item </button> <br> <br> </a>
 
-	<h2> 03.02.TUES </h2>
-		● laundry bedsheet <br>
-		● review ethics protocol <br>
-		● laundry <br>
-		○ 3, 2PM meeting <br>
-		- 30g of coffee too strong <br>
-		● review ethics more <br> <br>
+			<a href="http://127.0.0.1:8000/home/"><button> Home </button></a>
 
-	<a href="http://127.0.0.1:8000/home/"><button> Home </button></a>
+			<a href="http://127.0.0.1:8000/profile/"><button> Profile </button></a>
 
-	<a href="http://127.0.0.1:8000/profile/"><button> Profile </button></a>
+			<a href="http://127.0.0.1:8000/key/"><button> Key </button></a>
 
-	<a href="http://127.0.0.1:8000/key/"><button> Key </button></a>
+			<a href="http://127.0.0.1:8000/this_week/"><button> This Week </button></a>
 
-	<a href="http://127.0.0.1:8000/this_week/"><button> This Week </button></a>
-
-	<a href="http://127.0.0.1:8000/today/"><button> Today </button></a></center>
-
+			<a href="http://127.0.0.1:8000/today/"><button> Today </button></a></center>
+			</center>
 	</body>
-</html>
-
+<html>
