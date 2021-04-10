@@ -81,10 +81,12 @@ def edit_week_view(request, *args, **kwargs):
 		form.save()
 	return render(request, "edit_week.html", {"form": form})
 
-def delete_week_view(request, *args, **kwargs):
-	task = Week.objects.first()
+def delete_week_view(request, pk):
+	task = Week.objects.get(pk=pk)
+
 	if request.method == "POST":
 		task.delete()
+		return redirect("/this_week")
 	return render(request, "delete_week.html", {"task": task} )
 
 
@@ -108,7 +110,9 @@ def edit_today_view(request, *args, **kwargs):
 	return render(request, "edit_today.html", {"form": form})
 
 def delete_today_view(request, *args, **kwargs):
-	task = Today.objects.first()
+	task = Today.objects.get(pk=pk)
+
 	if request.method == "POST":
 		task.delete()
-	return render(request, "delete_week.html", {"task": task} )
+		return redirect("/today")
+	return render(request, "delete_today.html", {"task": task} )

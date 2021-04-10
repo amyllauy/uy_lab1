@@ -7,7 +7,7 @@
 	<h1>Delete Task</h1>
 	<form method ="POST"> {% csrf_token %}
 		Are you sure you would like to delete the {{task}}? <br> <br>
-		<a href="{% url 'this_week' %}"><input button type="submit" value="Yes"></a> </input> </form>
+		<a href="{% url 'this_week' % pk=task.pk()}"><input button type="submit" value="Yes"></a> </input> </form>
 		<a href="{% url 'this_week' %}"><button> No </button></a> <br> <br>
 		<br>
 
