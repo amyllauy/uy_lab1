@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title> Today </title>
+	</head>
+	<body>
+	<center>
+	<h1>Edit Task</h1>
+		<form method=POST>
+			{{form.as_p}}
+			<input type="submit" value="Edit!" onclick=alert("Edited!")>{% csrf_token %}
+		</form>
+		<br>
+
+			<a href="http://127.0.0.1:8000/home/"><button> Home </button></a>
+
+			<a href="http://127.0.0.1:8000/profile/"><button> Profile </button></a>
+
+			<a href="http://127.0.0.1:8000/key/"><button> Key </button></a>
+
+			<a href="http://127.0.0.1:8000/this_week/"><button> This Week </button></a>
+
+			<a href="http://127.0.0.1:8000/today/"><button> Today </button></a></center>
+			</center>
+	</body>
+<html>
